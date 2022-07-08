@@ -1,10 +1,11 @@
 import {Text, StyleProp, TextStyle} from 'react-native';
-import React, {FC} from 'react';
+import React, {FC, ReactNode} from 'react';
 import {globalStyles} from '../../styles/Globalstyles';
 
 interface textProps {
   style?: StyleProp<TextStyle>;
   numberOfLines?: number;
+  children: ReactNode;
 }
 const TextComponent: FC<textProps> = ({style, numberOfLines, children}) => {
   return (
