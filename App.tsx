@@ -29,7 +29,7 @@ const App = () => {
         Platform.OS === 'android' && globalStyles.pt1,
         {
           ...StyleSheet.absoluteFillObject,
-          backgroundColor: colors.bgInputGray,
+          backgroundColor: colors.White,
         },
       ]}>
       <SafeAreaView

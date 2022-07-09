@@ -38,11 +38,16 @@ const SearchInput: FC<textInputProps> = ({
         globalStyles.mb1,
         globalStyles.w10,
         globalStyles.flexColumn,
+        globalStyles.bgInputGray,
+        {
+          borderRadius: 8,
+        },
         style,
       ]}>
       <TextInput
         value={value}
         onChangeText={onChangeText}
+        onSubmitEditing={onPress}
         style={[
           globalStyles.bgWhite,
           globalStyles.textBlack,
@@ -59,6 +64,7 @@ const SearchInput: FC<textInputProps> = ({
           {
             // flex: 1,
             width: '100%',
+            backgroundColor: 'transparent',
           },
         ]}
         placeholder={placeholder}

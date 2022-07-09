@@ -66,6 +66,12 @@ export const globalStyles = ScaledSheet.create({
   textPrimary: {
     color: colors.Primary,
   },
+  textCommon: {
+    color: colors.Common,
+  },
+  textSecondary: {
+    color: colors.Secondary,
+  },
   textYellow: {
     color: colors.yellowBg,
   },
@@ -230,9 +236,6 @@ export const globalStyles = ScaledSheet.create({
   },
   bgBackground: {
     backgroundColor: colors.Background,
-  },
-  bgWhite: {
-    backgroundColor: colors.White,
   },
   bgBlack: {
     backgroundColor: colors.Black,

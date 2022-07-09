@@ -9,7 +9,7 @@ export const inputStyles = ScaledSheet.create({
   },
   inputFocused: {
     borderWidth: 2,
-    borderColor: colors.Primary,
+    borderColor: colors.Common,
   },
   pinInput: {
     flexDirection: 'row',
