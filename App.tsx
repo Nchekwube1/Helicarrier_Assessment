@@ -21,30 +21,38 @@ import colors from './src/constants/colors';
 import Home from './src/features/Home';
 import {globalStyles} from './src/styles/Globalstyles';
 export const STATUSBAR_HEIGHT = StatusBar.currentHeight;
+import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: 'https://rickandmortyapi.com/graphql',
+  cache: new InMemoryCache(),
+});
 const App = () => {
   return (
-    <View
-      style={[
-        Platform.OS === 'android' && globalStyles.pt1,
-        {
-          ...StyleSheet.absoluteFillObject,
-          backgroundColor: colors.White,
-        },
-      ]}>
-      <SafeAreaView
-        style={{
-          height: STATUSBAR_HEIGHT,
-          backgroundColor: colors.Common,
-        }}>
-        <StatusBar
-          translucent
-          barStyle={'light-content'}
-          backgroundColor={colors.Common}
-        />
-      </SafeAreaView>
-      <Home />
-    </View>
+    <ApolloProvider client={client}>
+      <View
+        style={[
+          Platform.OS === 'android' && globalStyles.pt1,
+          {
+            ...StyleSheet.absoluteFillObject,
+            backgroundColor: colors.White,
+          },
+        ]}>
+        <SafeAreaView
+          style={{
+            height: STATUSBAR_HEIGHT,
+            backgroundColor: colors.Common,
+          }}>
+          <StatusBar
+            translucent
+            barStyle={'light-content'}
+            backgroundColor={colors.Common}
+          />
+        </SafeAreaView>
+        <Home />
+      </View>
+    </ApolloProvider>
   );
 };
 

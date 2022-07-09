@@ -4,7 +4,7 @@ import colors from '../../constants/colors';
 import {globalStyles} from '../../styles/Globalstyles';
 import {inputStyles} from './inputStyles';
 import {textInputProps} from '../../constants/types';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 const SearchInput: FC<textInputProps> = ({
   onChangeText,
   placeholder,
@@ -32,18 +32,24 @@ const SearchInput: FC<textInputProps> = ({
     <View
       style={[
         globalStyles.flex,
-        // globalStyles.bgYellow,
-        // globalStyles.textInputHeight,
+        globalStyles.flexRow,
+        globalStyles.alignItemsCenter,
         globalStyles.mt1,
         globalStyles.mb1,
         globalStyles.w10,
-        globalStyles.flexColumn,
         globalStyles.bgInputGray,
+        focus && inputStyles.inputFocused,
         {
           borderRadius: 8,
+          height: 60,
+          borderColor: colors.borderColor,
+          borderWidth: 1,
         },
         style,
       ]}>
+      <View style={[globalStyles.pl1]}>
+        <Ionicons name="search" size={23} color={colors.Common} />
+      </View>
       <TextInput
         value={value}
         onChangeText={onChangeText}
@@ -52,19 +58,16 @@ const SearchInput: FC<textInputProps> = ({
           globalStyles.bgWhite,
           globalStyles.textBlack,
           globalStyles.absolute,
-          globalStyles.w10,
           globalStyles.h10,
           globalStyles.textInputHeight,
-          {borderRadius: 8},
-          {borderColor: colors.borderColor, borderWidth: 1},
           globalStyles.px1,
-          focus && inputStyles.inputFocused,
           globalStyles.relative,
           globalStyles.fontNunitoRegular,
+          globalStyles.textSizeNormal,
           {
-            // flex: 1,
-            width: '100%',
+            flex: 1,
             backgroundColor: 'transparent',
+            borderRadius: 8,
           },
         ]}
         placeholder={placeholder}

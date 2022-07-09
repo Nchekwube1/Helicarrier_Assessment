@@ -11,9 +11,13 @@
     "pod": " cd ios && pod install && cd .."
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@types/react-native-indicators": "^0.16.2",
     "@types/react-native-vector-icons": "^6.4.11",
+    "graphql": "^16.5.0",
     "react": "18.0.0",
     "react-native": "0.69.1",
+    "react-native-indicators": "^0.17.0",
     "react-native-size-matters": "^0.4.0",
     "react-native-vector-icons": "^9.2.0"
   },
