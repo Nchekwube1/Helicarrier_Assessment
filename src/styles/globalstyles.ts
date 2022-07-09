@@ -12,7 +12,9 @@ export const globalStyles = ScaledSheet.create({
     width: '100%',
     justifyContent: 'center',
   },
-
+  bgWhite: {
+    backgroundColor: colors.White,
+  },
   textCenter: {textAlign: 'center'},
   textStart: {textAlign: 'left'},
   textEnd: {textAlign: 'right'},
