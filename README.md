@@ -1,5 +1,8 @@
 # Recruitment task for helicarrier
 
+<img src="./src/assets/projectImages/i1.png"
+     alt="Preview"/>
+
 Run Locally by cloning the project
 
 ```bash
