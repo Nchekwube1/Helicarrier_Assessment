@@ -3,6 +3,12 @@
 <img src="./src/assets/projectImages/i1.png"
      alt="Preview"/>
 
+<img src="./src/assets/projectImages/i2.png"
+     alt="Preview"/>
+
+<img src="./src/assets/projectImages/i3.png"
+     alt="Preview"/>
+
 Run Locally by cloning the project
 
 ```bash
