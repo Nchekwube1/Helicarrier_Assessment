@@ -1,10 +1,11 @@
-import {View, TextInput} from 'react-native';
+import {View, TextInput, TouchableOpacity} from 'react-native';
 import React, {FC, useState} from 'react';
 import colors from '../../constants/colors';
 import {globalStyles} from '../../styles/Globalstyles';
 import {inputStyles} from './inputStyles';
 import {textInputProps} from '../../constants/types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const SearchInput: FC<textInputProps> = ({
   onChangeText,
   placeholder,
@@ -13,6 +14,7 @@ const SearchInput: FC<textInputProps> = ({
   onFocus,
   onPress,
   style,
+  setValue,
 }) => {
   const [focus, setFocus] = useState(false);
 
@@ -54,6 +56,7 @@ const SearchInput: FC<textInputProps> = ({
         value={value}
         onChangeText={onChangeText}
         onSubmitEditing={onPress}
+        onKeyPress={onPress}
         style={[
           globalStyles.bgWhite,
           globalStyles.textBlack,
@@ -75,6 +78,9 @@ const SearchInput: FC<textInputProps> = ({
         onFocus={changeFocus}
         onBlur={blur}
       />
+      <TouchableOpacity onPress={() => setValue('')} style={[globalStyles.px1]}>
+        <MaterialIcons name="clear" size={23} color={colors.Common} />
+      </TouchableOpacity>
     </View>
   );
 };

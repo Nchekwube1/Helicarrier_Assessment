@@ -8,6 +8,7 @@ export type actionBarProps = {
 
 export interface textInputProps {
   value: any;
+  setValue: any;
   onChangeText: (text: string) => void;
   style?: StyleProp<TextStyle>;
   onFocus?: () => void;

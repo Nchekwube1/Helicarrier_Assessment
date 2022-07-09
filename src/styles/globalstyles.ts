@@ -243,6 +243,12 @@ export const globalStyles = ScaledSheet.create({
   bgPrimary: {
     backgroundColor: colors.Primary,
   },
+  bgCommon: {
+    backgroundColor: colors.Common,
+  },
+  bgSecondary: {
+    backgroundColor: colors.Secondary,
+  },
 
   bgGray: {
     backgroundColor: colors.Gray,
