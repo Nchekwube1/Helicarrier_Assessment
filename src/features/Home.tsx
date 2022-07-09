@@ -1,17 +1,55 @@
 import {Platform, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {globalStyles} from '../styles/Globalstyles';
 import TextComponent from '../components/text/TextComponent';
 import colors from '../constants/colors';
 import SearchInput from '../components/input/SearchInput';
 import ImageComponent from '../components/global/Image';
 import {PulseIndicator} from 'react-native-indicators';
+import {gql, useQuery} from '@apollo/client';
+import LottieView from 'lottie-react-native';
 
 const Home = () => {
+  const GET_POKEMONS = gql`
+    query ExampleQuery($charactersPage2: Int) {
+      characters(page: $charactersPage2) {
+        results {
+          created
+          image
+          name
+          status
+          species
+          gender
+          id
+        }
+      }
+    }
+  `;
+  const {loading, error, data} = useQuery(GET_POKEMONS);
+  useEffect(() => {
+    let dataRes = data?.characters.results;
+    console.log({dataRes});
+  }, [data]);
   const [searchValue, setSearchValue] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [items, setItems] = useState([]);
+  const mockDate = [
+    {
+      date: '20th October 2020',
+    },
+    {
+      date: '11 March 2021',
+    },
+    {
+      date: '12th June 2022',
+    },
+    {
+      date: '4th January 2022',
+    },
+    {
+      date: '11th April 2020',
+    },
+  ];
   const onPress = () => {
-    setLoading(true);
     console.log({searchValue});
   };
   return (
@@ -34,7 +72,7 @@ const Home = () => {
               globalStyles.textSizeNormal,
               globalStyles.fontNunitoSemiBold,
             ]}>
-            20 Pending transactions
+            20 Available Pokemons
           </TextComponent>
         </View>
         <View
@@ -66,8 +104,36 @@ const Home = () => {
       </View>
       <View style={[Platform.OS === 'ios' && globalStyles.mb2, {flex: 1}]}>
         {loading && (
-          <View style={[globalStyles.mb10, {flex: 1}]}>
-            <PulseIndicator color={colors.Secondary} size={55} />
+          <View
+            style={[
+              globalStyles.mb10,
+              globalStyles.justifyCenter,
+              globalStyles.alignItemsCenter,
+              {flex: 1},
+            ]}>
+            {/* <PulseIndicator color={colors.Secondary} size={55} /> */}
+            <LottieView
+              source={require('../assets/animations/111529-rocket.json')}
+              autoPlay
+              loop
+              style={{width: 200, height: 200}}
+            />
+          </View>
+        )}
+        {error && (
+          <View
+            style={[
+              globalStyles.mb10,
+              globalStyles.justifyCenter,
+              globalStyles.alignItemsCenter,
+              {flex: 1},
+            ]}>
+            <LottieView
+              source={require('../assets/animations/98642-error-404.json')}
+              autoPlay
+              loop
+              style={{width: 200, height: 200}}
+            />
           </View>
         )}
       </View>
